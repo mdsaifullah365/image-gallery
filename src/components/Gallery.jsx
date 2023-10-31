@@ -1,7 +1,8 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 
 const Gallery = ({ selectedImages, setSelectedImages, images, setImages }) => {
-  console.log(selectedImages);
+  const [draggedImageIndex, setDraggedImageIndex] = useState(null);
+
   useEffect(() => {
     (async () => {
       let _images = [];
@@ -14,7 +15,6 @@ const Gallery = ({ selectedImages, setSelectedImages, images, setImages }) => {
       _images = _images.filter((image) => image.default);
       _images = _images.map((image) => image.default);
 
-      console.log(_images);
       setImages(_images);
     })();
   }, [setImages]);
@@ -33,7 +33,7 @@ const Gallery = ({ selectedImages, setSelectedImages, images, setImages }) => {
     }
   };
 
-  const handleCheckboxChange = (event, index) => {
+  const toggleImageSelection = (event, index) => {
     let _selectedImages = [...selectedImages];
 
     if (event.target.checked) {
@@ -47,21 +47,46 @@ const Gallery = ({ selectedImages, setSelectedImages, images, setImages }) => {
     setSelectedImages(_selectedImages);
   };
 
+  const handleImageReorder = (startIndex, endIndex) => {
+    const updatedImages = [...images];
+    const [draggedImage] = updatedImages.splice(startIndex, 1);
+    updatedImages.splice(endIndex, 0, draggedImage);
+    setImages(updatedImages);
+  };
+
+  const handleDragStart = (e, index) => {
+    setDraggedImageIndex(index);
+    e.dataTransfer.effectAllowed = "move";
+    e.dataTransfer.setData("text/plain", index.toString());
+  };
+
+  const handleDragOver = (e, index) => {
+    e.preventDefault();
+    e.dataTransfer.dropEffect = "move";
+    if (draggedImageIndex !== index) {
+      handleImageReorder(draggedImageIndex, index);
+      setDraggedImageIndex(index);
+    }
+  };
+
   return (
-    <div className="px-10 py-5 grid grid-cols-5 gap-5">
+    <div className="px-10 py-5 grid grid-cols-5 gap-5 image-container">
       {images &&
-        images.map((image, index) => (
+        images.map((src, index) => (
           <div
+            draggable
+            onDragStart={(e) => handleDragStart(e, index)}
+            onDragOver={(e) => handleDragOver(e, index)}
             style={{
-              backgroundImage: `url('${image}')`,
+              backgroundImage: `url('${src}')`,
             }}
             className={`w-full aspect-square border border-gray-400 rounded-lg first-of-type:col-span-2 first-of-type:row-span-2 bg-no-repeat bg-cover bg-center relative group/image`}
-            key={image}
+            key={src}
           >
             <div className="absolute inset-0 hover:bg-black opacity-0 hover:opacity-50 cursor-pointer z-20"></div>
             <input
               type="checkbox"
-              onChange={(e) => handleCheckboxChange(e, index)}
+              onChange={(e) => toggleImageSelection(e, index)}
               className={`absolute top-6 left-6 w-6 aspect-square ${
                 selectedImages.includes(index) || "hidden"
               } group-hover/image:inline cursor-pointer z-30`}

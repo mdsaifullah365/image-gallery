@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 
-const Gallery = () => {
+const Gallery = ({ selectedImages, setSelectedImages }) => {
   const [images, setImages] = useState([]);
 
   useEffect(() => {
@@ -34,17 +34,40 @@ const Gallery = () => {
     }
   };
 
+  const handleCheckboxChange = (event, index) => {
+    let _selectedImages = [...selectedImages];
+
+    if (event.target.checked) {
+      _selectedImages.push(index);
+    } else {
+      _selectedImages = _selectedImages.filter((image) => image !== index);
+    }
+
+    console.log(_selectedImages);
+
+    setSelectedImages(_selectedImages);
+  };
+
   return (
     <div className="px-10 py-5 grid grid-cols-5 gap-5">
       {images &&
-        images.map((image) => (
+        images.map((image, index) => (
           <div
             style={{
               backgroundImage: `url('${image}')`,
             }}
-            className={`w-full aspect-square border border-gray-400 rounded-lg first-of-type:col-span-2 first-of-type:row-span-2 bg-no-repeat bg-cover bg-center`}
+            className={`w-full aspect-square border border-gray-400 rounded-lg first-of-type:col-span-2 first-of-type:row-span-2 bg-no-repeat bg-cover bg-center relative group/image`}
             key={image}
-          ></div>
+          >
+            <div className="absolute inset-0 hover:bg-black opacity-0 hover:opacity-50 cursor-pointer z-20"></div>
+            <input
+              type="checkbox"
+              onChange={(e) => handleCheckboxChange(e, index)}
+              className={`absolute top-6 left-6 w-6 aspect-square ${
+                selectedImages.includes(index) || "hidden"
+              } group-hover/image:inline cursor-pointer z-30`}
+            />
+          </div>
         ))}
 
       <div className="w-full aspect-square border-dashed border border-gray-400 flex items-center justify-center rounded-lg relative">

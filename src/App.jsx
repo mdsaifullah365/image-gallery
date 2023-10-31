@@ -1,5 +1,28 @@
+import { useState } from "react";
+import Gallery from "./components/Gallery";
+import Header from "./components/Header";
+
 function App() {
-  return <p>Hello World</p>;
+  const [images, setImages] = useState([]);
+
+  const [selectedImages, setSelectedImages] = useState([]);
+
+  return (
+    <>
+      <Header
+        images={images}
+        setImages={setImages}
+        selectedImages={selectedImages}
+        setSelectedImages={setSelectedImages}
+      />
+      <Gallery
+        images={images}
+        setImages={setImages}
+        selectedImages={selectedImages}
+        setSelectedImages={setSelectedImages}
+      />
+    </>
+  );
 }
 
 export default App;

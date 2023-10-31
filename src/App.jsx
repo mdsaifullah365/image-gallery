@@ -3,12 +3,21 @@ import Gallery from "./components/Gallery";
 import Header from "./components/Header";
 
 function App() {
+  const [images, setImages] = useState([]);
+
   const [selectedImages, setSelectedImages] = useState([]);
 
   return (
     <>
-      <Header selectedImages={selectedImages} />
+      <Header
+        images={images}
+        setImages={setImages}
+        selectedImages={selectedImages}
+        setSelectedImages={setSelectedImages}
+      />
       <Gallery
+        images={images}
+        setImages={setImages}
         selectedImages={selectedImages}
         setSelectedImages={setSelectedImages}
       />

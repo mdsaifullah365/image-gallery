@@ -1,4 +1,14 @@
-const Header = ({ selectedImages }) => {
+const Header = ({ selectedImages, setSelectedImages, images, setImages }) => {
+  const handleDelete = () => {
+    const _images = images.filter(
+      (image, index) => !selectedImages.includes(index)
+    );
+
+    console.log(_images);
+
+    setImages(_images);
+    setSelectedImages([]);
+  };
   return (
     <div>
       <div className="flex justify-between items-center px-10 py-5 border-b border-gray-400">
@@ -11,7 +21,12 @@ const Header = ({ selectedImages }) => {
           </p>
         )}
         {selectedImages.length === 0 || (
-          <p className="font-bold text-red-400">Delete files</p>
+          <button
+            className="font-bold text-red-400 cursor-pointer hover:bg-gray-100 px-2 py-1 rounded-lg"
+            onClick={handleDelete}
+          >
+            Delete files
+          </button>
         )}
       </div>
     </div>

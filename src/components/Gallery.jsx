@@ -1,8 +1,7 @@
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 
-const Gallery = ({ selectedImages, setSelectedImages }) => {
-  const [images, setImages] = useState([]);
-
+const Gallery = ({ selectedImages, setSelectedImages, images, setImages }) => {
+  console.log(selectedImages);
   useEffect(() => {
     (async () => {
       let _images = [];
@@ -18,7 +17,7 @@ const Gallery = ({ selectedImages, setSelectedImages }) => {
       console.log(_images);
       setImages(_images);
     })();
-  }, []);
+  }, [setImages]);
 
   const handleFileChange = (event) => {
     const file = event.target.files[0];

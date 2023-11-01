@@ -5,17 +5,10 @@ const useImage = () => {
 
     useEffect(() => {
         (async () => {
-        let _images = [];
+            const res = await fetch('/src/data/images.json');
+            const images = await res.json();
 
-        for (let i = 1; i <= 9; i++) {
-            _images.push(import(`/src/assets/images/image-${i}.webp`));
-        }
-
-        _images = await Promise.all(_images);
-        _images = _images.filter((image) => image.default);
-        _images = _images.map((image) => image.default);
-
-        setImages(_images);
+            setImages(images);
         })();
     }, [setImages]);
 

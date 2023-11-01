@@ -1,5 +1,5 @@
 import { useState } from "react";
-import Gallery from "./Gallery";
+import ImageGrid from "./ImageGrid";
 import Topbar from "./Topbar";
 
 const ImageGallery = () => {
@@ -14,7 +14,7 @@ const ImageGallery = () => {
         selectedImages={selectedImages}
         setSelectedImages={setSelectedImages}
       />
-      <Gallery
+      <ImageGrid
         images={images}
         setImages={setImages}
         selectedImages={selectedImages}

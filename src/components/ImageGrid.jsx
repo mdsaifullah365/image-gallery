@@ -1,7 +1,12 @@
 import { useEffect, useState } from "react";
 import DraggableImage from "./DraggableImage";
 
-const Gallery = ({ selectedImages, setSelectedImages, images, setImages }) => {
+const ImageGrid = ({
+  selectedImages,
+  setSelectedImages,
+  images,
+  setImages,
+}) => {
   const [draggedImageIndex, setDraggedImageIndex] = useState(null);
 
   useEffect(() => {
@@ -100,4 +105,4 @@ const Gallery = ({ selectedImages, setSelectedImages, images, setImages }) => {
   );
 };
 
-export default Gallery;
+export default ImageGrid;

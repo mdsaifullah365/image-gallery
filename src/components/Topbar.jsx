@@ -1,7 +1,11 @@
+import { useState } from "react";
 import { BiSolidSelectMultiple } from "react-icons/bi";
 import { MdDeleteSweep } from "react-icons/md";
+import DeleteModal from "./DeleteModal";
 
 const Topbar = ({ selectedImages, setSelectedImages, images, setImages }) => {
+  const [isDeleteModalOpen, setIsDeleteModalOpen] = useState(false);
+
   const selectedImagesLength = selectedImages.length;
 
   // Handler for deleting Selected Items
@@ -12,6 +16,7 @@ const Topbar = ({ selectedImages, setSelectedImages, images, setImages }) => {
 
     setImages(_images);
     setSelectedImages([]);
+    setIsDeleteModalOpen(false);
   };
 
   return (
@@ -40,10 +45,18 @@ const Topbar = ({ selectedImages, setSelectedImages, images, setImages }) => {
           {/* Delete Button */}
           <MdDeleteSweep
             className="text-3xl md:text-4xl text-red-700 cursor-pointer hover:scale-125 transition-transform duration-100 ease-linear"
-            onClick={handleDelete}
+            onClick={() => setIsDeleteModalOpen(true)}
           />
         </div>
       )}
+
+      {/* Delete Modal */}
+      <DeleteModal
+        isOpen={isDeleteModalOpen}
+        handleClose={() => setIsDeleteModalOpen(false)}
+        handleDelete={handleDelete}
+        selectedImagesLength={selectedImagesLength}
+      />
     </div>
   );
 };

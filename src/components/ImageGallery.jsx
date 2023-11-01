@@ -1,11 +1,12 @@
 import { useState } from "react";
+import useImage from "../hooks/useImage";
 import ImageGrid from "./ImageGrid";
 import Topbar from "./Topbar";
 
 const ImageGallery = () => {
-  const [images, setImages] = useState([]);
-
+  const [images, setImages] = useImage();
   const [selectedImages, setSelectedImages] = useState([]);
+
   return (
     <div className="bg-white rounded-sm shadow">
       <Topbar

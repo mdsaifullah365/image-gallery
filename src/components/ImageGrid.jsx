@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import DraggableImage from "./DraggableImage";
 
 const ImageGrid = ({
@@ -8,22 +8,6 @@ const ImageGrid = ({
   setImages,
 }) => {
   const [draggedImageIndex, setDraggedImageIndex] = useState(null);
-
-  useEffect(() => {
-    (async () => {
-      let _images = [];
-
-      for (let i = 1; i <= 9; i++) {
-        _images.push(import(`/src/assets/images/image-${i}.webp`));
-      }
-
-      _images = await Promise.all(_images);
-      _images = _images.filter((image) => image.default);
-      _images = _images.map((image) => image.default);
-
-      setImages(_images);
-    })();
-  }, [setImages]);
 
   const handleFileChange = (event) => {
     const file = event.target.files[0];

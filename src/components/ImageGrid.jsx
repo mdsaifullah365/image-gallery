@@ -1,8 +1,10 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
+import ImageContext from "../contexts/ImageContext";
 import DraggableImage from "./DraggableImage";
 
-const ImageGrid = ({ images, setImages }) => {
+const ImageGrid = () => {
   const [draggedImageIndex, setDraggedImageIndex] = useState(null);
+  const [images, setImages] = useContext(ImageContext);
 
   // Handler for Image Adding
   const handleFileChange = (event) => {

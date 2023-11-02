@@ -1,10 +1,13 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { BiSolidSelectMultiple } from "react-icons/bi";
 import { MdDeleteSweep } from "react-icons/md";
+import ImageContext from "../contexts/ImageContext";
 import DeleteModal from "./DeleteModal";
 
-const Topbar = ({ images, setImages }) => {
+const Topbar = () => {
   const [isDeleteModalOpen, setIsDeleteModalOpen] = useState(false);
+  const [images] = useContext(ImageContext);
+
   const totalSelected = images.filter((image) => image.selected).length;
 
   // Handler for deleting Selected Items

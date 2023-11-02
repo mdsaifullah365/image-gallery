@@ -1,15 +1,18 @@
+import ImageContext from "../contexts/ImageContext";
 import useImage from "../hooks/useImage";
 import ImageGrid from "./ImageGrid";
 import Topbar from "./Topbar";
 
 const ImageGallery = () => {
-  const [images, setImages] = useImage();
+  const imageState = useImage();
 
   return (
-    <div className="bg-white rounded-sm shadow">
-      <Topbar images={images} setImages={setImages} />
-      <ImageGrid images={images} setImages={setImages} />
-    </div>
+    <ImageContext.Provider value={imageState}>
+      <div className="bg-white rounded-sm shadow">
+        <Topbar />
+        <ImageGrid />
+      </div>
+    </ImageContext.Provider>
   );
 };
 

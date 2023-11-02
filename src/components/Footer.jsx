@@ -8,9 +8,9 @@ const Footer = () => {
 
   return (
     <>
-      <div className="bg-slate-900 text-gray-300 flex flex-col md:flex-row gap-10 justify-between p-8 sm:p-10 md:px-16 md:py-10 rounded-sm shadow-lg">
+      <div className="bg-slate-900 text-gray-300 flex gap-10 flex-col md:flex-row justify-between md:items-center p-8 sm:p-10 md:px-16 md:py-10 rounded-sm shadow-lg">
         {/* Left Panel */}
-        <div className="flex flex-col items-start gap-2">
+        <div className="flex flex-col items-start gap-2 order-2 md:order-1">
           <p className="uppercase text-xl text-gray-400 font-bold mb-1">
             Important links
           </p>
@@ -39,8 +39,11 @@ const Footer = () => {
           </a>
         </div>
 
+        {/* Middle */}
+        <p className="text-4xl order-1 md:order-2">Thank you!</p>
+
         {/* Right Panel */}
-        <div className="flex flex-col items-start md:items-end gap-3">
+        <div className="flex flex-col items-start md:items-end gap-3 order-3">
           <p className="uppercase text-xl text-gray-400 font-bold mb-1">
             Social
           </p>
@@ -67,7 +70,7 @@ const Footer = () => {
               <BiLogoGithub />
             </a>
           </div>
-          {/* <p>&copy; {new Date().getFullYear()}, Md Saif Ullah</p> */}
+          <p>&copy; {new Date().getFullYear()}, Md Saif Ullah</p>
         </div>
       </div>
 

@@ -1,26 +1,18 @@
-import { useState } from "react";
-import Gallery from "./Gallery";
+import ImageContext from "../contexts/ImageContext";
+import useImage from "../hooks/useImage";
+import ImageGrid from "./ImageGrid";
 import Topbar from "./Topbar";
 
 const ImageGallery = () => {
-  const [images, setImages] = useState([]);
+  const imageState = useImage();
 
-  const [selectedImages, setSelectedImages] = useState([]);
   return (
-    <div className="bg-white rounded-sm shadow">
-      <Topbar
-        images={images}
-        setImages={setImages}
-        selectedImages={selectedImages}
-        setSelectedImages={setSelectedImages}
-      />
-      <Gallery
-        images={images}
-        setImages={setImages}
-        selectedImages={selectedImages}
-        setSelectedImages={setSelectedImages}
-      />
-    </div>
+    <ImageContext.Provider value={imageState}>
+      <div className="bg-white rounded-sm shadow">
+        <Topbar />
+        <ImageGrid />
+      </div>
+    </ImageContext.Provider>
   );
 };
 

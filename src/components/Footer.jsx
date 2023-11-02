@@ -8,7 +8,7 @@ const Footer = () => {
 
   return (
     <>
-      <div className="bg-slate-900 text-gray-300 flex gap-10 flex-col md:flex-row justify-between md:items-center p-8 sm:p-10 md:px-16 md:py-10 rounded-sm shadow-lg">
+      <div className="bg-slate-900 text-gray-300 flex gap-10 flex-col md:flex-row justify-between md:items-center p-8 sm:p-10 md:px-16 md:py-10 rounded-sm shadow">
         {/* Left Panel */}
         <div className="flex flex-col items-start gap-2 order-2 md:order-1">
           <p className="uppercase text-xl text-gray-400 font-bold mb-1">

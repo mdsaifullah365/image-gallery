@@ -10,15 +10,6 @@ const Topbar = () => {
 
   const totalSelected = images.filter((image) => image.selected).length;
 
-  // Handler for deleting Selected Items
-  const handleDelete = () => {
-    // Filter unselected images and keep these only
-    const _images = images.filter((image) => !image.selected);
-
-    setImages(_images);
-    setIsDeleteModalOpen(false);
-  };
-
   return (
     <>
       <div className="flex justify-between items-center px-5 shadow h-12 md:h-16">
@@ -54,10 +45,8 @@ const Topbar = () => {
 
       {/* Delete Modal */}
       <DeleteModal
-        isOpen={isDeleteModalOpen}
+        isDeleteModalOpen={isDeleteModalOpen}
         handleClose={() => setIsDeleteModalOpen(false)}
-        handleDelete={handleDelete}
-        selectedImagesLength={totalSelected}
       />
     </>
   );

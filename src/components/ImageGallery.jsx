@@ -8,7 +8,7 @@ const ImageGallery = () => {
 
   return (
     <ImageContext.Provider value={imageState}>
-      <div className="bg-white rounded-sm shadow">
+      <div className="bg-white rounded-sm shadow-2xl">
         <Topbar />
         <ImageGrid />
       </div>

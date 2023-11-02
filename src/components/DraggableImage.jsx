@@ -13,10 +13,12 @@ const DraggableImage = ({
       style={{
         backgroundImage: `url('${src}')`,
       }}
-      className="w-full aspect-square border border-gray-400 rounded-lg first-of-type:col-span-2 first-of-type:row-span-2 bg-no-repeat bg-cover bg-center relative group/image"
+      className={`w-full bg-white cursor-pointer hover:scale-[1.03] transition-transform duration-200 ease-out aspect-square shadow-xl hover:shadow-2xl rounded-lg first-of-type:col-span-2 first-of-type:row-span-2 first-of-type:shadow-2xl first-of-type:hover:scale-[.98] bg-no-repeat bg-cover bg-center relative group/image ${
+        selected && "opacity-70 border-2 border-blue-400"
+      }`}
     >
       {/* Hover Overlay */}
-      <div className="absolute inset-0 hover:bg-black opacity-0 hover:opacity-50 cursor-pointer z-20"></div>
+      {/* <div className="absolute inset-0 hover:bg-black opacity-0 hover:opacity-50 cursor-pointer z-20"></div> */}
 
       {/* Image Selection Checkbox */}
       <input

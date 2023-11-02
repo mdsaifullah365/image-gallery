@@ -1,4 +1,5 @@
 import { useContext, useState } from "react";
+import { BsImages } from "react-icons/bs";
 import ImageContext from "../contexts/ImageContext";
 import DraggableImage from "./DraggableImage";
 
@@ -8,16 +9,22 @@ const ImageGrid = () => {
 
   // Handler for Image Adding
   const handleFileChange = (event) => {
-    const file = event.target.files[0];
+    let files = Array.from(event.target.files);
 
-    if (file && file.type.startsWith("image/")) {
-      // File is an image
+    // Returns false if at least one file is not a valid image file
+    const isFilesValid = files.every((file) => file.type.startsWith("image/"));
+
+    if (isFilesValid) {
+      // Generate array of objects with src URLs
+      files = files.map((file) => ({
+        src: URL.createObjectURL(file),
+      }));
+
       const _images = [...images];
-      _images.push({ src: URL.createObjectURL(file) });
+      _images.push(...files);
       setImages(_images);
     } else {
-      // File is not an image
-      alert("Please select a valid image file.");
+      alert("Please select valid image files.");
     }
   };
 
@@ -56,7 +63,7 @@ const ImageGrid = () => {
   };
 
   return (
-    <div className="px-10 py-5 grid grid-cols-5 gap-5 image-container">
+    <div className="p-3 lg:px-10 lg:py-5 grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-3 md:gap-4 lg:gap-5 image-container bg-[#f9f9f9]">
       {/* Image Grid */}
       {images?.map(({ src, selected }, index) => (
         <DraggableImage
@@ -70,14 +77,18 @@ const ImageGrid = () => {
       ))}
 
       {/* Add Image Input */}
-      <div className="w-full aspect-square border-dashed border border-gray-400 flex items-center justify-center rounded-lg relative">
+      <div className="w-full bg-red-50 shadow aspect-square border-dashed border bg-opacity-30 border-gray-400 flex flex-col items-center justify-center gap-2 rounded-lg relative">
         <input
+          multiple
           type="file"
           accept="image/*"
-          className="absolute inset-0 z-10 opacity-0"
+          className="absolute inset-0 z-10 opacity-0 cursor-pointer"
           onChange={handleFileChange}
+          //To reset the input's value and trigger the onchange event even if the same path is selected
+          onClick={(e) => (e.target.value = null)}
         />
-        <p className="text-center">Add Image</p>
+        <BsImages className="text-2xl" />
+        <p className="text-center font-semibold text-lg">Add Images</p>
       </div>
     </div>
   );

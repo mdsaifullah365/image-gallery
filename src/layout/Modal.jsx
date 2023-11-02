@@ -1,4 +1,15 @@
+import { useEffect } from "react";
+
 const Modal = ({ isOpen, handleClose, children }) => {
+  useEffect(() => {
+    // Make the background non-scrollable when the modal is open,
+    if (isOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "auto";
+    }
+  }, [isOpen]);
+
   if (!isOpen) {
     return null;
   }

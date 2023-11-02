@@ -1,12 +1,7 @@
 import { useState } from "react";
 import DraggableImage from "./DraggableImage";
 
-const ImageGrid = ({
-  selectedImages,
-  setSelectedImages,
-  images,
-  setImages,
-}) => {
+const ImageGrid = ({ images, setImages }) => {
   const [draggedImageIndex, setDraggedImageIndex] = useState(null);
 
   // Handler for Image Adding
@@ -26,17 +21,11 @@ const ImageGrid = ({
 
   // Handler for toggling image selection
   const toggleImageSelection = (event, index) => {
-    let _selectedImages = [...selectedImages];
+    let _images = [...images];
+    // Set 'selected' property true of false for a specific image
+    _images[index].selected = event.target.checked;
 
-    if (event.target.checked) {
-      // Image Checked
-      _selectedImages.push(index);
-    } else {
-      // Image Unchecked
-      _selectedImages = _selectedImages.filter((image) => image !== index);
-    }
-
-    setSelectedImages(_selectedImages);
+    setImages(_images);
   };
 
   // Handler for Image Reordering
@@ -67,14 +56,14 @@ const ImageGrid = ({
   return (
     <div className="px-10 py-5 grid grid-cols-5 gap-5 image-container">
       {/* Image Grid */}
-      {images?.map(({ src }, index) => (
+      {images?.map(({ src, selected }, index) => (
         <DraggableImage
           key={src}
           src={src}
           handleDragStart={() => setDraggedImageIndex(index)}
           handleDragOver={(e) => handleDragOver(e, index)}
           toggleImageSelection={(e) => toggleImageSelection(e, index)}
-          selected={selectedImages.includes(index)}
+          selected={selected}
         />
       ))}
 

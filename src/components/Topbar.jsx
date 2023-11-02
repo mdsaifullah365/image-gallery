@@ -3,18 +3,16 @@ import { BiSolidSelectMultiple } from "react-icons/bi";
 import { MdDeleteSweep } from "react-icons/md";
 import DeleteModal from "./DeleteModal";
 
-const Topbar = ({ selectedImages, setSelectedImages, images, setImages }) => {
+const Topbar = ({ images, setImages }) => {
   const [isDeleteModalOpen, setIsDeleteModalOpen] = useState(false);
-  const selectedImagesLength = selectedImages.length;
+  const totalSelected = images.filter((image) => image.selected).length;
 
   // Handler for deleting Selected Items
   const handleDelete = () => {
-    const _images = images.filter(
-      (image, index) => !selectedImages.includes(index)
-    );
+    // Filter unselected images and keep these only
+    const _images = images.filter((image) => !image.selected);
 
     setImages(_images);
-    setSelectedImages([]);
     setIsDeleteModalOpen(false);
   };
 
@@ -27,17 +25,17 @@ const Topbar = ({ selectedImages, setSelectedImages, images, setImages }) => {
         </h1>
 
         {/* Show delete option when any item is selected */}
-        {selectedImagesLength > 0 && (
+        {totalSelected > 0 && (
           <div className="flex items-center gap-4 md:gap-5">
             <p className="text-lg flex items-center gap-2">
               <BiSolidSelectMultiple className="text-green-500" />
 
               {/* Show how many items are selected */}
               <span>
-                {selectedImagesLength}{" "}
+                {totalSelected}{" "}
                 <span className="hidden md:inline">
                   {/* Use plural when more than one items are selected */}
-                  File{selectedImagesLength > 1 && "s"} Selected{" "}
+                  File{totalSelected > 1 && "s"} Selected{" "}
                 </span>
               </span>
             </p>
@@ -56,7 +54,7 @@ const Topbar = ({ selectedImages, setSelectedImages, images, setImages }) => {
         isOpen={isDeleteModalOpen}
         handleClose={() => setIsDeleteModalOpen(false)}
         handleDelete={handleDelete}
-        selectedImagesLength={selectedImagesLength}
+        selectedImagesLength={totalSelected}
       />
     </>
   );

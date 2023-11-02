@@ -57,7 +57,7 @@ const ImageGrid = () => {
   };
 
   return (
-    <div className="px-10 py-5 grid grid-cols-5 gap-5 image-container bg-[#eee]">
+    <div className="px-10 py-5 grid grid-cols-5 gap-5 image-container bg-[#f9f9f9]">
       {/* Image Grid */}
       {images?.map(({ src, selected }, index) => (
         <DraggableImage

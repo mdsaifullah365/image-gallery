@@ -22,7 +22,7 @@ const Topbar = () => {
         {totalSelected > 0 && (
           <div className="flex items-center gap-4 md:gap-5">
             <p className="text-lg flex items-center gap-2">
-              <BiSolidSelectMultiple className="text-green-500" />
+              <BiSolidSelectMultiple className="text-blue-500" />
 
               {/* Show how many items are selected */}
               <span>

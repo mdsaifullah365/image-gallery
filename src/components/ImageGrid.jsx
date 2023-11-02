@@ -13,7 +13,7 @@ const ImageGrid = () => {
     if (file && file.type.startsWith("image/")) {
       // File is an image
       const _images = [...images];
-      _images.push(URL.createObjectURL(file));
+      _images.push({ src: URL.createObjectURL(file) });
       setImages(_images);
     } else {
       // File is not an image

@@ -21,9 +21,14 @@ const Footer = () => {
         >
           Source Code
         </a>
-        <button className="hover:underline hover:text-white">
-          Download Resume
-        </button>
+        <a
+          href="https://drive.google.com/file/d/1qKCQbRDGX3EokK0nQKf02ivksedcEFRv/view?usp=sharing"
+          target="_blank"
+          className="hover:underline hover:text-white"
+          rel="noreferrer"
+        >
+          My Resume
+        </a>
       </div>
 
       {/* Right Panel */}

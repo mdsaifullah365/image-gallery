@@ -8,18 +8,27 @@ const ImageGrid = () => {
   const [images, setImages] = useContext(ImageContext);
 
   // Handler for Image Adding
+
   const handleFileChange = (event) => {
     const file = event.target.files[0];
 
     if (file && file.type.startsWith("image/")) {
       // File is an image
       const _images = [...images];
-      _images.push({ src: URL.createObjectURL(file) });
+
+      let files = event.target.files;
+
+      files = Array.from(files).map((file) => ({
+        src: URL.createObjectURL(file),
+      }));
+      _images.push(...files);
       setImages(_images);
     } else {
       // File is not an image
       alert("Please select a valid image file.");
     }
+
+    event.target;
   };
 
   // Handler for toggling image selection
@@ -73,13 +82,16 @@ const ImageGrid = () => {
       {/* Add Image Input */}
       <div className="w-full bg-red-50 shadow aspect-square border-dashed border bg-opacity-30 border-gray-400 flex flex-col items-center justify-center gap-2 rounded-lg relative">
         <input
+          multiple
           type="file"
           accept="image/*"
           className="absolute inset-0 z-10 opacity-0 cursor-pointer"
           onChange={handleFileChange}
+          //To reset the input's value and trigger the onchange event even if the same path is selected
+          onClick={(e) => (e.target.value = null)}
         />
         <BsImages className="text-2xl" />
-        <p className="text-center font-semibold text-lg">Add Image</p>
+        <p className="text-center font-semibold text-lg">Add Images</p>
       </div>
     </div>
   );

@@ -70,12 +70,11 @@ const ImageGrid = ({
       {images?.map((src, index) => (
         <DraggableImage
           key={src}
-          index={index}
-          selectedImages={selectedImages}
-          handleDragStart={() => setDraggedImageIndex(index)}
-          handleDragOver={handleDragOver}
           src={src}
-          toggleImageSelection={toggleImageSelection}
+          handleDragStart={() => setDraggedImageIndex(index)}
+          handleDragOver={(e) => handleDragOver(e, index)}
+          toggleImageSelection={(e) => toggleImageSelection(e, index)}
+          selected={selectedImages.includes(index)}
         />
       ))}
 

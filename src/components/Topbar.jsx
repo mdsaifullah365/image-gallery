@@ -5,7 +5,6 @@ import DeleteModal from "./DeleteModal";
 
 const Topbar = ({ selectedImages, setSelectedImages, images, setImages }) => {
   const [isDeleteModalOpen, setIsDeleteModalOpen] = useState(false);
-
   const selectedImagesLength = selectedImages.length;
 
   // Handler for deleting Selected Items
@@ -20,35 +19,37 @@ const Topbar = ({ selectedImages, setSelectedImages, images, setImages }) => {
   };
 
   return (
-    <div className="flex justify-between items-center px-5 shadow h-12 md:h-16">
-      {/* Title */}
-      <h1 className="font-bold text-base md:text-lg lg:text-xl">
-        Gallery Items
-      </h1>
+    <>
+      <div className="flex justify-between items-center px-5 shadow h-12 md:h-16">
+        {/* Title */}
+        <h1 className="font-bold text-base md:text-lg lg:text-xl">
+          Gallery Items
+        </h1>
 
-      {/* Show delete option when any items selected */}
-      {selectedImagesLength === 0 || (
-        <div className="flex items-center gap-4 md:gap-5">
-          <p className="text-lg flex items-center gap-2">
-            <BiSolidSelectMultiple className="text-green-500" />
+        {/* Show delete option when any item is selected */}
+        {selectedImagesLength > 0 && (
+          <div className="flex items-center gap-4 md:gap-5">
+            <p className="text-lg flex items-center gap-2">
+              <BiSolidSelectMultiple className="text-green-500" />
 
-            {/* Show the number of selected items */}
-            <span>
-              {selectedImagesLength}{" "}
-              <span className="hidden md:inline">
-                {/* Use plural when more than one items are selected */}
-                File{selectedImagesLength > 1 && "s"} Selected{" "}
+              {/* Show how many items are selected */}
+              <span>
+                {selectedImagesLength}{" "}
+                <span className="hidden md:inline">
+                  {/* Use plural when more than one items are selected */}
+                  File{selectedImagesLength > 1 && "s"} Selected{" "}
+                </span>
               </span>
-            </span>
-          </p>
+            </p>
 
-          {/* Delete Button */}
-          <MdDeleteSweep
-            className="text-3xl md:text-4xl text-red-700 cursor-pointer hover:scale-125 transition-transform duration-100 ease-linear"
-            onClick={() => setIsDeleteModalOpen(true)}
-          />
-        </div>
-      )}
+            {/* Delete Button */}
+            <MdDeleteSweep
+              className="text-3xl md:text-4xl text-red-700 cursor-pointer hover:scale-125 transition-transform duration-100 ease-linear"
+              onClick={() => setIsDeleteModalOpen(true)}
+            />
+          </div>
+        )}
+      </div>
 
       {/* Delete Modal */}
       <DeleteModal
@@ -57,7 +58,7 @@ const Topbar = ({ selectedImages, setSelectedImages, images, setImages }) => {
         handleDelete={handleDelete}
         selectedImagesLength={selectedImagesLength}
       />
-    </div>
+    </>
   );
 };
 

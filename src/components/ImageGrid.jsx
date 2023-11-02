@@ -8,27 +8,24 @@ const ImageGrid = () => {
   const [images, setImages] = useContext(ImageContext);
 
   // Handler for Image Adding
-
   const handleFileChange = (event) => {
-    const file = event.target.files[0];
+    let files = Array.from(event.target.files);
 
-    if (file && file.type.startsWith("image/")) {
-      // File is an image
-      const _images = [...images];
+    // Returns false if at least one file is not a valid image file
+    const isFilesValid = files.every((file) => file.type.startsWith("image/"));
 
-      let files = event.target.files;
-
-      files = Array.from(files).map((file) => ({
+    if (isFilesValid) {
+      // Generate array of objects with src URLs
+      files = files.map((file) => ({
         src: URL.createObjectURL(file),
       }));
+
+      const _images = [...images];
       _images.push(...files);
       setImages(_images);
     } else {
-      // File is not an image
-      alert("Please select a valid image file.");
+      alert("Please select valid image files.");
     }
-
-    event.target;
   };
 
   // Handler for toggling image selection

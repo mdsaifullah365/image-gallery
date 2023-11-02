@@ -1,15 +1,13 @@
 import { useEffect, useState } from "react";
+import imageData from "../data/images";
 
 const useImage = () => {
     const [images, setImages] = useState([]);
 
     useEffect(() => {
-        (async () => {
-            const res = await fetch('/src/data/images.json');
-            const images = await res.json();
+        // Code for loading data from the server
 
-            setImages(images);
-        })();
+        setImages(imageData);
     }, [setImages]);
 
     return [images, setImages];

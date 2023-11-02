@@ -9,6 +9,7 @@ const ImageGrid = ({
 }) => {
   const [draggedImageIndex, setDraggedImageIndex] = useState(null);
 
+  // Handler for Image Adding
   const handleFileChange = (event) => {
     const file = event.target.files[0];
 
@@ -23,62 +24,65 @@ const ImageGrid = ({
     }
   };
 
+  // Handler for toggling image selection
   const toggleImageSelection = (event, index) => {
     let _selectedImages = [...selectedImages];
 
     if (event.target.checked) {
+      // Image Checked
       _selectedImages.push(index);
     } else {
+      // Image Unchecked
       _selectedImages = _selectedImages.filter((image) => image !== index);
     }
-
-    console.log(_selectedImages);
 
     setSelectedImages(_selectedImages);
   };
 
+  // Handler for Image Reordering
   const handleImageReorder = (startIndex, endIndex) => {
-    const updatedImages = [...images];
-    const [draggedImage] = updatedImages.splice(startIndex, 1);
-    updatedImages.splice(endIndex, 0, draggedImage);
-    setImages(updatedImages);
+    const _images = [...images];
+
+    // Remove draggedImage from the startIndex (this will return the removed image)
+    const [draggedImage] = _images.splice(startIndex, 1);
+    // Add the dragged image at the endIndex
+    _images.splice(endIndex, 0, draggedImage);
+
+    setImages(_images);
   };
 
-  const handleDragStart = (e, index) => {
-    setDraggedImageIndex(index);
-    e.dataTransfer.effectAllowed = "move";
-    e.dataTransfer.setData("text/plain", index.toString());
-  };
-
+  // Handle image reordering when drag over a target
   const handleDragOver = (e, index) => {
     e.preventDefault();
-    e.dataTransfer.dropEffect = "move";
+
+    // If dragged image index and drop target index are not the same
     if (draggedImageIndex !== index) {
+      // Handle Image Reorder
       handleImageReorder(draggedImageIndex, index);
+      // Select the dropped image as dragged image
       setDraggedImageIndex(index);
     }
   };
 
   return (
     <div className="px-10 py-5 grid grid-cols-5 gap-5 image-container">
-      {images &&
-        images.map((src, index) => (
-          <DraggableImage
-            handleDragStart={handleDragStart}
-            handleDragOver={handleDragOver}
-            index={index}
-            src={src}
-            toggleImageSelection={toggleImageSelection}
-            selectedImages={selectedImages}
-            key={src}
-          />
-        ))}
+      {/* Image Grid */}
+      {images?.map((src, index) => (
+        <DraggableImage
+          key={src}
+          index={index}
+          selectedImages={selectedImages}
+          handleDragStart={() => setDraggedImageIndex(index)}
+          handleDragOver={handleDragOver}
+          src={src}
+          toggleImageSelection={toggleImageSelection}
+        />
+      ))}
 
+      {/* Add Image Input */}
       <div className="w-full aspect-square border-dashed border border-gray-400 flex items-center justify-center rounded-lg relative">
         <input
           type="file"
-          id="image"
-          name="image"
           accept="image/*"
           className="absolute inset-0 z-10 opacity-0"
           onChange={handleFileChange}

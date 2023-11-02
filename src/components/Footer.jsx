@@ -13,7 +13,12 @@ const Footer = () => {
         <button className="hover:underline hover:text-white">
           Project Description
         </button>
-        <a href="" target="_blank" className="hover:underline hover:text-white">
+        <a
+          href="https://github.com/mdsaifullah365/image-gallery.git"
+          target="_blank"
+          className="hover:underline hover:text-white"
+          rel="noreferrer"
+        >
           Source Code
         </a>
         <button className="hover:underline hover:text-white">

@@ -1,34 +1,13 @@
-const Header = ({ selectedImages, setSelectedImages, images, setImages }) => {
-  const handleDelete = () => {
-    const _images = images.filter(
-      (image, index) => !selectedImages.includes(index)
-    );
-
-    console.log(_images);
-
-    setImages(_images);
-    setSelectedImages([]);
-  };
+const Header = () => {
   return (
-    <div>
-      <div className="flex justify-between items-center px-10 py-5 border-b border-gray-400">
-        {selectedImages.length === 0 ? (
-          <h1 className="font-bold text-3xl">Gallery</h1>
-        ) : (
-          <p className="font-bold text-xl">
-            {selectedImages.length} File{selectedImages.length !== 1 && "s"}{" "}
-            Selected
-          </p>
-        )}
-        {selectedImages.length === 0 || (
-          <button
-            className="font-bold text-red-400 cursor-pointer hover:bg-gray-100 px-2 py-1 rounded-lg"
-            onClick={handleDelete}
-          >
-            Delete files
-          </button>
-        )}
-      </div>
+    <div className="bg-white flex justify-between items-center px-5 rounded-sm shadow h-12 md:h-16">
+      {/* Left Panel */}
+      <h1 className="font-bold text-lg md:text-2xl lg:text-3xl">
+        Image Gallery
+      </h1>
+
+      {/* Right Panel*/}
+      <div></div>
     </div>
   );
 };

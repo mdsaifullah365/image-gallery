@@ -67,7 +67,7 @@ const ImageGrid = ({
   return (
     <div className="px-10 py-5 grid grid-cols-5 gap-5 image-container">
       {/* Image Grid */}
-      {images?.map((src, index) => (
+      {images?.map(({ src }, index) => (
         <DraggableImage
           key={src}
           src={src}

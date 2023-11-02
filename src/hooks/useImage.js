@@ -1,18 +1,14 @@
 import { useEffect, useState } from "react";
+import imageData from "../data/images";
 
 const useImage = () => {
-    const [images, setImages] = useState([]);
+  const [images, setImages] = useState([]);
 
-    useEffect(() => {
-        (async () => {
-            const res = await fetch('/src/data/images.json');
-            const images = await res.json();
+  useEffect(() => {
+    setImages(imageData);
+  }, []);
 
-            setImages(images);
-        })();
-    }, [setImages]);
-
-    return [images, setImages];
-}
+  return [images, setImages];
+};
 
 export default useImage;

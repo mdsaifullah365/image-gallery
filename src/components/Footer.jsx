@@ -3,7 +3,7 @@ import { MdEmail, MdPhone } from "react-icons/md";
 
 const Footer = () => {
   return (
-    <div className="bg-slate-900 text-gray-300 flex justify-between px-20 py-10 rounded-sm shadow-lg">
+    <div className="bg-slate-900 text-gray-300 flex flex-col md:flex-row gap-10 justify-between p-8 sm:p-10 md:px-16 md:py-10 rounded-sm shadow-lg">
       {/* Left Panel */}
       <div className="flex flex-col items-start gap-2">
         <p className="uppercase text-xl text-gray-400 font-bold mb-1">
@@ -22,7 +22,7 @@ const Footer = () => {
       </div>
 
       {/* Right Panel */}
-      <div className="flex flex-col items-end gap-3">
+      <div className="flex flex-col items-start md:items-end gap-3">
         <p className="uppercase text-xl text-gray-400 font-bold mb-1">Social</p>
         {/* Links */}
         <div className="flex justify-center gap-5 text-2xl">

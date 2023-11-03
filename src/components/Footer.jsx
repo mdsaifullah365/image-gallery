@@ -40,7 +40,9 @@ const Footer = () => {
         </div>
 
         {/* Middle */}
-        <p className="text-4xl order-1 md:order-2">Thank you!</p>
+        <p className="text-4xl order-1 md:order-2 hidden md:block">
+          Thank you!
+        </p>
 
         {/* Right Panel */}
         <div className="flex flex-col items-start md:items-end gap-3 order-3">
@@ -74,7 +76,7 @@ const Footer = () => {
         </div>
       </div>
 
-      {/* Delete Modal */}
+      {/* Case Study Modal */}
       <CaseStudyModal
         isCaseStudyModalOpen={isCaseStudyModalOpen}
         handleClose={() => setIsCaseStudyModalOpen(false)}

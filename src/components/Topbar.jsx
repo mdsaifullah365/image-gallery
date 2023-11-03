@@ -14,7 +14,7 @@ const Topbar = () => {
     <>
       <div className="bg-white bg-opacity-95 flex justify-between items-center px-5 shadow border-b border-gray-200 h-12 md:h-16 sticky top-0 z-40">
         {/* Title */}
-        <h1 className="font-bold text-base md:text-lg lg:text-xl">
+        <h1 className="font-semibold text-base md:text-lg lg:text-xl">
           Gallery Items
         </h1>
 
@@ -22,7 +22,7 @@ const Topbar = () => {
         {totalSelected > 0 && (
           <div className="flex items-center gap-4 md:gap-5">
             <p className="text-lg flex items-center gap-2">
-              <BiSolidSelectMultiple className="text-green-500" />
+              <BiSolidSelectMultiple className="text-blue-500" />
 
               {/* Show how many items are selected */}
               <span>

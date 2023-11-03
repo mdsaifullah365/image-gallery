@@ -1,43 +1,12 @@
 import { useContext, useState } from "react";
-import { BsImages } from "react-icons/bs";
 import ImageContext from "../contexts/ImageContext";
 import DraggableImage from "./DraggableImage";
+import AddImagesInput from "./inputs/AddImagesInput";
 
 const ImageGrid = () => {
-  const [draggedImageIndex, setDraggedImageIndex] = useState(null);
   const [images, setImages] = useContext(ImageContext);
+  const [draggedImageIndex, setDraggedImageIndex] = useState(null);
 
-  // Handler for Image Adding
-  const handleFileChange = (event) => {
-    let files = Array.from(event.target.files);
-
-    // Returns false if at least one file is not a valid image file
-    const isFilesValid = files.every((file) => file.type.startsWith("image/"));
-
-    if (isFilesValid) {
-      // Generate array of objects with src URLs
-      files = files.map((file) => ({
-        src: URL.createObjectURL(file),
-      }));
-
-      const _images = [...images];
-      _images.push(...files);
-      setImages(_images);
-    } else {
-      alert("Please select valid image files.");
-    }
-  };
-
-  // Handler for toggling image selection
-  const toggleImageSelection = (event, index) => {
-    let _images = [...images];
-    // Set 'selected' property true of false for a specific image
-    _images[index].selected = event.target.checked;
-
-    setImages(_images);
-  };
-
-  // Handler for Image Reordering
   const handleImageReorder = (startIndex, endIndex) => {
     const _images = [...images];
 
@@ -49,7 +18,6 @@ const ImageGrid = () => {
     setImages(_images);
   };
 
-  // Handle image reordering when drag over a target
   const handleDragOver = (e, index) => {
     e.preventDefault();
 
@@ -62,6 +30,28 @@ const ImageGrid = () => {
     }
   };
 
+  const handleFileChange = (event) => {
+    let files = Array.from(event.target.files);
+
+    // Returns false if at least one file is not a valid image file
+    const isFilesValid = files.every((file) => file.type.startsWith("image/"));
+
+    if (isFilesValid) {
+      // Generate array of objects from images with src URLs
+      files = files.map((file) => ({
+        src: URL.createObjectURL(file),
+      }));
+
+      // Update images state with selected images
+      const _images = [...images];
+      _images.push(...files);
+      setImages(_images);
+    } else {
+      // Show an alert if any of the images is not a valid image file
+      alert("Please select valid image files.");
+    }
+  };
+
   return (
     <div className="p-3 lg:px-10 lg:py-5 grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-3 md:gap-4 lg:gap-5 image-container bg-[#f9f9f9]">
       {/* Image Grid */}
@@ -69,27 +59,15 @@ const ImageGrid = () => {
         <DraggableImage
           key={src}
           src={src}
+          index={index}
+          selected={selected}
           handleDragStart={() => setDraggedImageIndex(index)}
           handleDragOver={(e) => handleDragOver(e, index)}
-          toggleImageSelection={(e) => toggleImageSelection(e, index)}
-          selected={selected}
         />
       ))}
 
-      {/* Add Image Input */}
-      <div className="w-full bg-red-50 shadow aspect-square border-dashed border bg-opacity-30 border-gray-400 flex flex-col items-center justify-center gap-2 rounded-lg relative">
-        <input
-          multiple
-          type="file"
-          accept="image/*"
-          className="absolute inset-0 z-10 opacity-0 cursor-pointer"
-          onChange={handleFileChange}
-          //To reset the input's value and trigger the onchange event even if the same path is selected
-          onClick={(e) => (e.target.value = null)}
-        />
-        <BsImages className="text-2xl" />
-        <p className="text-center font-semibold text-lg">Add Images</p>
-      </div>
+      {/* Add Images Input */}
+      <AddImagesInput handleChange={handleFileChange} />
     </div>
   );
 };

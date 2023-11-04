@@ -1,8 +1,8 @@
 import { useContext } from "react";
-import ImageContext from "../contexts/ImageContext";
-import Modal from "../layout/Modal";
-import ButtonDanger from "./buttons/ButtonDanger";
-import ButtonLight from "./buttons/ButtonLight";
+import ImageContext from "../../contexts/ImageContext";
+import Modal from "../../layouts/Modal";
+import ButtonDanger from "../buttons/ButtonDanger";
+import ButtonLight from "../buttons/ButtonLight";
 
 const DeleteModal = ({ isDeleteModalOpen, handleClose }) => {
   const [images, setImages] = useContext(ImageContext);

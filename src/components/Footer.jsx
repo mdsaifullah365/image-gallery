@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { BiLogoGithub, BiLogoLinkedinSquare } from "react-icons/bi";
 import { MdEmail, MdPhone } from "react-icons/md";
-import CaseStudyModal from "./CaseStudyModal";
+import CaseStudyModal from "./modals/CaseStudyModal";
 
 const Footer = () => {
   const [isCaseStudyModalOpen, setIsCaseStudyModalOpen] = useState(false);

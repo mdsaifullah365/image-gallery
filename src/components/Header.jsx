@@ -1,5 +1,5 @@
 import { useState } from "react";
-import CaseStudyModal from "./CaseStudyModal";
+import CaseStudyModal from "./modals/CaseStudyModal";
 
 const Header = () => {
   const [isCaseStudyModalOpen, setIsCaseStudyModalOpen] = useState(false);

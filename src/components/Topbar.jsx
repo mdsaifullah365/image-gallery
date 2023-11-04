@@ -2,7 +2,7 @@ import { useContext, useState } from "react";
 import { BiSolidSelectMultiple } from "react-icons/bi";
 import { MdDeleteSweep } from "react-icons/md";
 import ImageContext from "../contexts/ImageContext";
-import DeleteModal from "./DeleteModal";
+import DeleteModal from "./modals/DeleteModal";
 
 const Topbar = () => {
   const [isDeleteModalOpen, setIsDeleteModalOpen] = useState(false);

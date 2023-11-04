@@ -1,6 +1,6 @@
 import { useContext, useState } from "react";
 import ImageContext from "../contexts/ImageContext";
-import DraggableImage from "./DraggableImage";
+import ImageCard from "./ImageCard";
 import AddImagesInput from "./inputs/AddImagesInput";
 
 const ImageGrid = () => {
@@ -56,7 +56,7 @@ const ImageGrid = () => {
     <div className="p-3 lg:px-10 lg:py-5 grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-3 md:gap-4 lg:gap-5 image-container bg-[#f9f9f9]">
       {/* Image Grid */}
       {images?.map(({ src, selected }, index) => (
-        <DraggableImage
+        <ImageCard
           key={src}
           src={src}
           index={index}

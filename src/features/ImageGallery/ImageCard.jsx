@@ -1,4 +1,4 @@
-import SelectImageInput from "./inputs/SelectImageInput";
+import SelectImageInput from "../../components/inputs/SelectImageInput";
 
 const ImageCard = ({
   src,
@@ -27,4 +27,4 @@ const ImageCard = ({
   );
 };
 
-export default ImageCard;
+export { ImageCard };

@@ -39,7 +39,7 @@ const Footer = () => {
           </a>
         </div>
 
-        {/* Middle */}
+        {/* Middle Panel */}
         <p className="text-4xl order-1 md:order-2 hidden md:block">
           Thank you!
         </p>

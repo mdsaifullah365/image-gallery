@@ -1,6 +1,6 @@
 import Footer from "./components/Footer";
 import Header from "./components/Header";
-import ImageGallery from "./components/ImageGallery";
+import { ImageGallery } from "./features/ImageGallery";
 
 function App() {
   return (

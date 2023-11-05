@@ -10,6 +10,7 @@ const Modal = ({ isOpen, handleClose, children }) => {
     }
   }, [isOpen]);
 
+  // Stop rendering when isOpen is false
   if (!isOpen) {
     return null;
   }

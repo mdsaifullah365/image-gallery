@@ -1,7 +1,7 @@
 import { useContext, useState } from "react";
-import ImageContext from "../contexts/ImageContext";
-import ImageCard from "./ImageCard";
-import AddImagesInput from "./inputs/AddImagesInput";
+import AddImagesInput from "../../components/inputs/AddImagesInput";
+import ImageContext from "../../contexts/ImageContext";
+import { ImageCard } from "./index";
 
 const ImageGrid = () => {
   const [images, setImages] = useContext(ImageContext);
@@ -64,4 +64,4 @@ const ImageGrid = () => {
   );
 };
 
-export default ImageGrid;
+export { ImageGrid };

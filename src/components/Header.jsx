@@ -11,7 +11,7 @@ const Header = () => {
           Image Gallery
         </h1>
 
-        {/* CTA*/}
+        {/* CTA Buttons*/}
         <button
           onClick={() => setIsCaseStudyModalOpen(true)}
           className="bg-[#f67d28] text-white text-xs sm:text-base sm:font-semibold px-3 sm:px-6 py-2 sm:py-2 rounded-md cursor-pointer shadow-lg hover:shadow-xl hover:scale-105 transition-transform duration-100 ease-in"

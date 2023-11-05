@@ -15,7 +15,7 @@ import H1 from "../headings/H1";
 const CaseStudyModal = ({ isCaseStudyModalOpen, handleClose }) => {
   return (
     <Modal isOpen={isCaseStudyModalOpen} handleClose={handleClose}>
-      <div className="bg-white rounded-lg shadow-lg max-w-4xl mx-5 h-[95vh] overflow-hidden pb-8">
+      <div className="bg-white rounded-lg shadow-lg max-w-4xl mx-5 h-[90vh] sm:h-[95vh] overflow-hidden pb-8">
         <div className="h-full overflow-y-scroll">
           {/* Header */}
           <div className="flex justify-between items-center gap-3 px-8 py-4 mb-4 sticky top-0 bg-white border-b border-gray-100">

@@ -1,9 +1,10 @@
+import { useState } from "react";
 import ImageContext from "../../contexts/ImageContext";
-import useImage from "../../hooks/useImage";
+import imageData from "../../data/images";
 import { GalleryHeader, ImageGrid } from "./index";
 
 const ImageGallery = () => {
-  const imageState = useImage();
+  const imageState = useState(imageData);
 
   return (
     <ImageContext.Provider value={imageState}>

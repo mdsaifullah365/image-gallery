@@ -29,10 +29,11 @@ const ProjectDevelopment = () => {
         </li>
         <li>
           <span className="font-semibold">Deleting Multiple Images:</span> Users
-          could select multiple images by clicking on them, with a visual
-          indication (e.g., border or checkmark) to show which images were
-          selected. A delete button allowed users to remove the selected images.
-          A confirmation dialogue box is implemented to confirm delete.
+          could select multiple images by clicking on the checkbox. Visual
+          indication was provided by changing border and opacity to show which
+          images were selected. A delete button allowed users to remove the
+          selected images. A confirmation dialogue box is implemented to confirm
+          the deletion.
         </li>
         <li>
           <span className="font-semibold">Setting Feature Image:</span> The
@@ -40,11 +41,6 @@ const ProjectDevelopment = () => {
           feature image by default. Users could reorder the images to change the
           featured image, and it was visually distinct to highlight its status.
           It was styled to be larger and more prominent than the other images.
-        </li>
-        <li>
-          <span className="font-semibold">User Experience:</span> To enhance the
-          user experience, smooth transitions and animations were applied when
-          hovering images or deleting them.
         </li>
         <li>
           <span className="font-semibold">Responsiveness:</span> The gallery

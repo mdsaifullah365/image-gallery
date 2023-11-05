@@ -9,8 +9,8 @@ const Challenges = () => {
       <ul className="list-disc pl-6">
         <li>
           <H3>
-            Challenge 1: Implementing smooth drag-and-drop functionality for
-            reordering images using native HTML drag events.
+            Challenge 1: Implementing drag-and-drop functionality for reordering
+            images using native HTML drag events.
           </H3>
 
           <p>

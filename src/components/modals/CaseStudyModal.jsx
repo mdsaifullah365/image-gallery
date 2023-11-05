@@ -5,7 +5,6 @@ import {
   KeyTakeaways,
   Objective,
   ProjectDevelopment,
-  ProjectOverview,
   ProjectPlanning,
   Results,
 } from "../../features/CaseStudy";
@@ -32,7 +31,6 @@ const CaseStudyModal = ({ isCaseStudyModalOpen, handleClose }) => {
           {/* Body */}
           <div className="px-8">
             <Objective />
-            <ProjectOverview />
             <ProjectPlanning />
             <ProjectDevelopment />
             <Challenges />

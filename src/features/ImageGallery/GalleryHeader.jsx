@@ -1,13 +1,14 @@
 import { useContext, useState } from "react";
 import { BiSolidSelectMultiple } from "react-icons/bi";
 import { MdDeleteSweep } from "react-icons/md";
-import ImageContext from "../contexts/ImageContext";
-import DeleteModal from "./DeleteModal";
+import DeleteModal from "../../components/modals/DeleteModal";
+import ImageContext from "../../contexts/ImageContext";
 
-const Topbar = () => {
+const GalleryHeader = () => {
   const [isDeleteModalOpen, setIsDeleteModalOpen] = useState(false);
   const [images] = useContext(ImageContext);
 
+  // Calculate amount of total selected images
   const totalSelected = images.filter((image) => image.selected).length;
 
   return (
@@ -52,4 +53,4 @@ const Topbar = () => {
   );
 };
 
-export default Topbar;
+export { GalleryHeader };

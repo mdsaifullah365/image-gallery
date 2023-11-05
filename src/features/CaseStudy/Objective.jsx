@@ -4,6 +4,7 @@ const Objective = () => {
   return (
     <>
       <H2>Objective</H2>
+
       <p className="mb-2">
         The objective of this project was to create a responsive image gallery
         using React JS with the following features: reordering, deleting

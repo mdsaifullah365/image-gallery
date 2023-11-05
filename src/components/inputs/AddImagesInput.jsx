@@ -9,7 +9,7 @@ const AddImagesInput = ({ handleChange }) => {
         accept="image/*"
         className="absolute inset-0 z-10 opacity-0 cursor-pointer"
         onChange={handleChange}
-        //To reset the input's value and trigger the onchange event even if the same path is selected
+        // To reset the input's value and trigger the onchange event even if the same path is selected
         onClick={(e) => (e.target.value = null)}
       />
       <BsImages className="text-2xl" />

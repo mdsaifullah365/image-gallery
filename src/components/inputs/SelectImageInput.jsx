@@ -17,7 +17,7 @@ const SelectImageInput = ({ index, selected }) => {
       onChange={(e) => toggleImageSelection(e, index)}
       className={`${
         selected || "hidden" // Hide the checkbox if not selected and not hovered
-      } absolute top-6 left-6 w-6 aspect-square group-hover/image:inline cursor-pointer z-30`}
+      } group-hover/image:inline absolute top-6 left-6 w-6 aspect-square cursor-pointer z-30`}
     />
   );
 };

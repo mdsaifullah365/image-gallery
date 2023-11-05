@@ -11,7 +11,7 @@ const DeleteModal = ({ isDeleteModalOpen, handleClose }) => {
   const item = totalSelected > 1 ? "these images" : "the image";
 
   const handleDelete = () => {
-    const _images = images.filter((image) => !image.selected); // Filter unselected images and keep these only
+    const _images = images.filter((image) => !image.selected); // Filter unselected images to update the state
     setImages(_images);
     handleClose();
   };

@@ -1,4 +1,7 @@
-import Modal from "../layout/Modal";
+import Modal from "../../layouts/Modal";
+import H1 from "../headings/H1";
+import H2 from "../headings/H2";
+import H3 from "../headings/H3";
 
 const CaseStudyModal = ({ isCaseStudyModalOpen, handleClose }) => {
   return (
@@ -7,9 +10,8 @@ const CaseStudyModal = ({ isCaseStudyModalOpen, handleClose }) => {
         <div className="h-full overflow-y-scroll">
           {/* Header */}
           <div className="flex justify-between items-center gap-3 px-8 py-4 mb-4 sticky top-0 bg-white border-b border-gray-100">
-            <h2 className="text-xl sm:text-2xl font-semibold">
-              Case Study: Responsive Image Gallery using React JS
-            </h2>
+            <H1>Case Study: Responsive Image Gallery using React JS</H1>
+            {/* Close Button */}
             <button
               onClick={handleClose}
               className="text-gray-500 hover:text-gray-700"
@@ -21,7 +23,7 @@ const CaseStudyModal = ({ isCaseStudyModalOpen, handleClose }) => {
           {/* Body */}
           <div className="px-8">
             {/* Objective */}
-            <div className="text-lg font-semibold mt-4">Objective</div>
+            <H2>Objective</H2>
             <p className="mb-2">
               The objective of this project was to create a responsive image
               gallery using React JS with the following features: reordering,
@@ -31,7 +33,7 @@ const CaseStudyModal = ({ isCaseStudyModalOpen, handleClose }) => {
             </p>
 
             {/* Project Overview */}
-            <div className="text-lg font-semibold mt-4">Project Overview</div>
+            <H2>Project Overview</H2>
             <p className="mb-2">
               The project involved creating a dynamic image gallery that allows
               users to view, reorder, delete multiple images, and set a featured
@@ -70,10 +72,8 @@ const CaseStudyModal = ({ isCaseStudyModalOpen, handleClose }) => {
             </ul>
 
             {/* Project Development */}
-            <div className="text-lg font-semibold mt-4">
-              Project Development
-            </div>
-            <div className="font-semibold mt-4">Technology Stack</div>
+            <H2>Project Development</H2>
+            <H3>Technology Stack</H3>
             <ul className="list-disc pl-6">
               <li>Frontend Framework: React JS</li>
               <li>
@@ -81,7 +81,7 @@ const CaseStudyModal = ({ isCaseStudyModalOpen, handleClose }) => {
                 functionality), React Transition Group (for animations)
               </li>
             </ul>
-            <div className="font-semibold mt-4">Implementation</div>
+            <H3>Implementation</H3>
             <ul className="list-disc pl-6">
               <li>
                 Gallery Layout: The gallery layout was implemented using CSS
@@ -120,7 +120,7 @@ const CaseStudyModal = ({ isCaseStudyModalOpen, handleClose }) => {
             </ul>
 
             {/* Challenges */}
-            <div className="text-lg font-semibold mt-4">Challenges</div>
+            <H2>Challenges</H2>
             <p className="mb-2">
               The project presented some challenges, including:
             </p>
@@ -140,7 +140,7 @@ const CaseStudyModal = ({ isCaseStudyModalOpen, handleClose }) => {
             </ul>
 
             {/* Results */}
-            <div className="text-lg font-semibold mt-4">Results</div>
+            <H2>Results</H2>
             <p className="mb-2">
               The project resulted in a responsive and visually appealing image
               gallery with the desired features. Users could easily reorder
@@ -155,7 +155,7 @@ const CaseStudyModal = ({ isCaseStudyModalOpen, handleClose }) => {
             </p>
 
             {/* Key Takeaways */}
-            <div className="text-lg font-semibold mt-4">Key Takeaways</div>
+            <H2>Key Takeaways</H2>
             <ul className="list-disc pl-6">
               <li>
                 React JS, along with libraries like React DnD and React
@@ -177,7 +177,7 @@ const CaseStudyModal = ({ isCaseStudyModalOpen, handleClose }) => {
             </ul>
 
             {/* Conclusion */}
-            <div className="text-lg font-semibold mt-4">Conclusion</div>
+            <H2>Conclusion</H2>
             <p className="mb-2">
               The development of the responsive image gallery using React JS was
               a successful project that met the objectives and requirements

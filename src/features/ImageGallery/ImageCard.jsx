@@ -1,6 +1,6 @@
-import SelectImageInput from "./inputs/SelectImageInput";
+import SelectImageInput from "../../components/inputs/SelectImageInput";
 
-const DraggableImage = ({
+const ImageCard = ({
   src,
   index,
   selected,
@@ -27,4 +27,4 @@ const DraggableImage = ({
   );
 };
 
-export default DraggableImage;
+export { ImageCard };

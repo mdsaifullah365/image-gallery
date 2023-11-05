@@ -1,32 +1,24 @@
 import { useContext, useState } from "react";
-import ImageContext from "../contexts/ImageContext";
-import DraggableImage from "./DraggableImage";
-import AddImagesInput from "./inputs/AddImagesInput";
+import AddImagesInput from "../../components/inputs/AddImagesInput";
+import ImageContext from "../../contexts/ImageContext";
+import { ImageCard } from "./index";
 
 const ImageGrid = () => {
   const [images, setImages] = useContext(ImageContext);
   const [draggedImageIndex, setDraggedImageIndex] = useState(null);
 
-  const handleImageReorder = (startIndex, endIndex) => {
-    const _images = [...images];
-
-    // Remove draggedImage from the startIndex (this will return the removed image)
-    const [draggedImage] = _images.splice(startIndex, 1);
-    // Add the dragged image at the endIndex
-    _images.splice(endIndex, 0, draggedImage);
-
-    setImages(_images);
-  };
-
-  const handleDragOver = (e, index) => {
+  const handleDragOver = (e, endIndex) => {
     e.preventDefault();
 
     // If dragged image index and drop target index are not the same
-    if (draggedImageIndex !== index) {
+    if (draggedImageIndex !== endIndex) {
       // Handle Image Reorder
-      handleImageReorder(draggedImageIndex, index);
-      // Select the dropped image as dragged image
-      setDraggedImageIndex(index);
+      const _images = [...images];
+      const [draggedImage] = _images.splice(draggedImageIndex, 1); // Remove draggedImage from the startIndex (this will return the removed image)
+      _images.splice(endIndex, 0, draggedImage); // Add the dragged image at the endIndex
+      setImages(_images);
+
+      setDraggedImageIndex(endIndex); // Select the dropped image as dragged image
     }
   };
 
@@ -56,7 +48,7 @@ const ImageGrid = () => {
     <div className="p-3 lg:px-10 lg:py-5 grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-3 md:gap-4 lg:gap-5 image-container bg-[#f9f9f9]">
       {/* Image Grid */}
       {images?.map(({ src, selected }, index) => (
-        <DraggableImage
+        <ImageCard
           key={src}
           src={src}
           index={index}
@@ -72,4 +64,4 @@ const ImageGrid = () => {
   );
 };
 
-export default ImageGrid;
+export { ImageGrid };

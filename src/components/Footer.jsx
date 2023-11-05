@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { BiLogoGithub, BiLogoLinkedinSquare } from "react-icons/bi";
 import { MdEmail, MdPhone } from "react-icons/md";
-import CaseStudyModal from "./CaseStudyModal";
+import CaseStudyModal from "./modals/CaseStudyModal";
 
 const Footer = () => {
   const [isCaseStudyModalOpen, setIsCaseStudyModalOpen] = useState(false);
@@ -39,8 +39,10 @@ const Footer = () => {
           </a>
         </div>
 
-        {/* Middle */}
-        <p className="text-4xl order-1 md:order-2">Thank you!</p>
+        {/* Middle Panel */}
+        <p className="text-4xl order-1 md:order-2 hidden md:block">
+          Thank you!
+        </p>
 
         {/* Right Panel */}
         <div className="flex flex-col items-start md:items-end gap-3 order-3">
@@ -74,7 +76,7 @@ const Footer = () => {
         </div>
       </div>
 
-      {/* Delete Modal */}
+      {/* Case Study Modal */}
       <CaseStudyModal
         isCaseStudyModalOpen={isCaseStudyModalOpen}
         handleClose={() => setIsCaseStudyModalOpen(false)}

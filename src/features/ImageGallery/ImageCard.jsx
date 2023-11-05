@@ -14,8 +14,6 @@ const ImageCard = ({
   return (
     <div
       draggable
-      onTouchStart={handleDragStart}
-      onTouchEnd={handleDragOver}
       onDragStart={handleDragStart}
       onDragOver={handleDragOver}
       style={style}

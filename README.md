@@ -1,5 +1,7 @@
 # Case Study: Responsive Image Gallery using React JS
 
+## [Live Demo](https://image-gallery-dnd.netlify.app/)
+
 ## Objective
 
 The objective of this project was to create a responsive image gallery using React JS with the following features: reordering, deleting multiple images, and setting a feature image. The goal was to provide users with a visually appealing and seamless user experience.
@@ -30,12 +32,15 @@ For effective project planning and organization, I utilized GitMind.GitMind allo
 The project presented some challenges, including:
 
 - **Challenge 1: Implementing drag-and-drop functionality for reordering images using native HTML drag events.**
+
   **Solution:** Overcoming this challenge without relying on a specialized library like React DnD required a deep dive into native HTML drag and drop events. I extensively studied the HTML5 Drag and Drop API to understand its capabilities and limitations. I implemented a custom drag-and-drop solution that allowed users to reorder images seamlessly using the native events. This solution involved setting up event listeners for drag start and drag over events. By carefully managing the images state, I ensured that images could be reordered smoothly without the need for a third-party library.
 
 - **Challenge 2: Ensuring a consistent and visually appealing layout across different screen sizes.**
+
   **Solution:** To address the challenge of maintaining a visually appealing and responsive layout, I adopted a mobile-first design strategy. Leveraging CSS Grid for the gallery layout and Tailwind CSS for styling, I created a flexible and responsive design that adapted seamlessly to different screen sizes. Extensive testing was conducted on various devices and browsers to validate the responsiveness of the gallery. I fine-tuned the design and styles, ensuring that the layout remained consistent and visually appealing across a wide range of screen sizes.
 
 - **Challenge 3: Handling the complexity of tracking selected images for deletion and updating the UI accordingly.**
+
   **Solution:** The challenge of managing the selection of multiple images for deletion was resolved through effective state management and UI updates. A custom selection mechanism was implemented to track user-selected images and visually indicate their selection. React's state management capabilities were utilized to ensure a responsive and performant UI. This allowed users to interact with the gallery seamlessly, selecting and deleting images with ease while maintaining a smooth and intuitive user experience.
 
 By addressing these challenges with a focus on native HTML drag events, I was able to create a responsive image gallery that met the project's objectives and provided a seamless user experience. These challenges highlighted my ability to work with core web technologies and reinforced my problem-solving skills in web development.
@@ -49,11 +54,15 @@ The live demo was hosted successfully, and the URL was shared for assessment. Th
 ## Failures!
 
 - **Failure 1: Smooth Transition and Animation When Reordering**
+
   **Issue:** Smooth transitions and animations were challenging due to state changes at the time of reordering.
+
   **Lesson:** Gained awareness of the need for advanced animation techniques in React. Will focus on mastering this skill in future projects.
 
 - **Failure 2: Lack of Touch Device Support**
+
   **Issue:** Drag and drop functionality was not compatible with touch devices.
+
   **Lesson:** Highlighted the importance of considering cross-device compatibility from the project's outset. Will explore separate touch event handling in future to ensure inclusivity.
 
 ## Key Takeaways

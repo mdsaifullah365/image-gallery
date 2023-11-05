@@ -50,7 +50,7 @@ const Footer = () => {
             Social
           </p>
           {/* Links */}
-          <div className="flex justify-center gap-5 text-2xl">
+          <div className="flex justify-center gap-3 sm:gap-5 text-2xl">
             <a href="tel:+8801766637772">
               <MdPhone />
             </a>

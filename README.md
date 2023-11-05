@@ -8,7 +8,7 @@ The objective of this project was to create a responsive image gallery using Rea
 
 ## Project Planning and Workflow Visualization
 
-For effective project planning and organization, I utilized GitMind.GitMind allowed me to structure ideas, break down tasks, and create a visual workflow.
+For effective project planning and organization, I utilized GitMind. GitMind allowed me to structure ideas, break down tasks, and create a visual workflow.
 
 ![Project Planning](/src/assets/images/gitmind.png)
 

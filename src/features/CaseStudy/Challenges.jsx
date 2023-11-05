@@ -5,7 +5,9 @@ const Challenges = () => {
   return (
     <>
       <H2>Challenges and Solutions</H2>
+
       <p className="mb-2">The project presented some challenges, including:</p>
+
       <ul className="list-disc pl-6">
         <li>
           <H3>
@@ -26,6 +28,7 @@ const Challenges = () => {
             need for a third-party library.
           </p>
         </li>
+
         <li>
           <H3>
             Challenge 2: Ensuring a consistent and visually appealing layout
@@ -44,6 +47,7 @@ const Challenges = () => {
             and visually appealing across a wide range of screen sizes.
           </p>
         </li>
+
         <li>
           <H3>
             Challenge 3: Handling the complexity of tracking selected images for
@@ -63,7 +67,9 @@ const Challenges = () => {
           </p>
         </li>
       </ul>
+
       <br />
+
       <p>
         By addressing these challenges with a focus on native HTML drag events,
         I was able to create a responsive image gallery that met the

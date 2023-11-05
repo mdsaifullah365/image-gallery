@@ -3,6 +3,7 @@ import CaseStudyModal from "./modals/CaseStudyModal";
 
 const Header = () => {
   const [isCaseStudyModalOpen, setIsCaseStudyModalOpen] = useState(false);
+
   return (
     <>
       <div className="bg-white flex justify-between items-center px-5 rounded-sm shadow h-12 md:h-16">

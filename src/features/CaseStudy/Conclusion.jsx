@@ -4,6 +4,7 @@ const Conclusion = () => {
   return (
     <>
       <H2>Conclusion</H2>
+
       <p className="mb-2">
         The development of the responsive image gallery using React JS was a
         successful project that met the objectives and requirements outlined in

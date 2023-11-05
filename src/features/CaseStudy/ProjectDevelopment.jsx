@@ -5,7 +5,9 @@ const ProjectDevelopment = () => {
   return (
     <>
       <H2>Project Development</H2>
+
       <H3>Technology Stack</H3>
+
       <ul className="list-disc pl-6">
         <li>
           <span className="font-semibold">Frontend Framework:</span> React JS
@@ -15,7 +17,9 @@ const ProjectDevelopment = () => {
           TailwindCSS
         </li>
       </ul>
+
       <H3>Implementation</H3>
+
       <ul className="list-disc pl-6">
         <li>
           <span className="font-semibold">Gallery Layout:</span> The gallery

@@ -1,25 +1,20 @@
-import { useContext, useState } from "react";
+import { useContext } from "react";
 import AddImagesInput from "../../components/inputs/AddImagesInput";
 import ImageContext from "../../contexts/ImageContext";
 import { ImageCard } from "./index";
 
 const ImageGrid = () => {
   const [images, setImages] = useContext(ImageContext);
-  const [draggedImageIndex, setDraggedImageIndex] = useState(null);
 
-  const handleDragOver = (e, targetImageIndex) => {
+  const handleDrop = (e, targetImageIndex) => {
     e.preventDefault();
+    const draggedImageIndex = e.dataTransfer.getData("imageIndex"); // get dragged image index in dataTransfer object
 
-    // If dragged image index and drop target index are not the same
-    if (draggedImageIndex !== targetImageIndex) {
-      // Handle Image Reorder
-      const _images = [...images];
-      const [draggedImage] = _images.splice(draggedImageIndex, 1); // Remove draggedImage from the startIndex (this will return the removed image)
-      _images.splice(targetImageIndex, 0, draggedImage); // Add the dragged image at the endIndex
-      setImages(_images);
+    let _images = [...images];
 
-      setDraggedImageIndex(targetImageIndex); // Select the dropped image as dragged index to enable resuming dragging
-    }
+    const [draggedImage] = _images.splice(draggedImageIndex, 1); // remove dragged image from it's current index
+    _images.splice(targetImageIndex, 0, draggedImage); // add the removed image at the target index
+    setImages(_images);
   };
 
   const handleFileChange = (event) => {
@@ -51,8 +46,9 @@ const ImageGrid = () => {
           src={src}
           index={index}
           selected={selected}
-          handleDragStart={() => setDraggedImageIndex(index)}
-          handleDragOver={(e) => handleDragOver(e, index)}
+          handleDragStart={(e) => e.dataTransfer.setData("imageIndex", index)}
+          handleDragOver={(e) => e.preventDefault()}
+          handleDrop={(e) => handleDrop(e, index)}
         />
       ))}
 

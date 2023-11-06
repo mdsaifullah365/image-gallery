@@ -23,7 +23,7 @@ For effective project planning and organization, I utilized GitMind. GitMind all
 
 - **Gallery Layout:** The gallery layout was implemented using CSS Grid. Each image in the gallery was rendered as a grid item.
 - **Sorting:** HTML5 Drag and Drop API is used to implement drag-and-drop functionality for reordering images. Users could simply drag and drop images to change their order.
-- **Deleting Multiple Images:** Users could select multiple images by clicking on the checkbox. Visual indication was provided by changing border and opacity to show which images were selected. A delete button allowed users to remove the selected images. A confirmation dialogue box is implemented to confirm the deletion.
+- **Deleting Multiple Images:** Users can select multiple images by clicking on the checkbox. The visual indication was provided by changing the border and opacity to show which images were selected. A delete button allowed users to remove the selected images. A confirmation dialogue box is implemented to confirm the deletion.
 - **Setting Feature Image:** The first image in the gallery (from left to right) was considered the feature image by default. Users could reorder the images to change the featured image, and it was visually distinct to highlight its status. It was styled to be larger and more prominent than the other images.
 - **Responsiveness:** The gallery layout and other components have been designed to be both responsive and visually attractive on all devices.
 
@@ -33,7 +33,7 @@ The project presented some challenges, including:
 
 - **Challenge 1: Implementing drag-and-drop functionality for reordering images using native HTML drag events.**
 
-  **Solution:** Overcoming this challenge without relying on a specialized library like React DnD required a deep dive into native HTML drag and drop events. I extensively studied the HTML5 Drag and Drop API to understand its capabilities and limitations. I implemented a custom drag-and-drop solution that allowed users to reorder images seamlessly using the native events. This solution involved setting up event listeners for drag start and drag over events. By carefully managing the images state, I ensured that images could be reordered smoothly without the need for a third-party library.
+  **Solution:** Overcoming this challenge without relying on a specialized library like React DnD required a deep dive into native HTML drag-and-drop events. I extensively studied the HTML5 Drag and Drop API to understand its capabilities and limitations. I implemented a custom drag-and-drop solution that allowed users to reorder images seamlessly using the native events. This solution involved setting up event listeners for drag start and drag over events. By carefully managing the image's state, I ensured that images could be reordered smoothly without the need for a third-party library.
 
 - **Challenge 2: Ensuring a consistent and visually appealing layout across different screen sizes.**
 
@@ -57,7 +57,7 @@ The live demo was hosted successfully, and the URL was shared for assessment. Th
 
   **Issue:** Smooth transitions and animations were challenging due to state changes at the time of reordering.
 
-  **Lesson:** Gained awareness of the need for advanced animation techniques in React. Will focus on mastering this skill in future projects.
+  **Lesson:** Gained awareness of the need for advanced animation techniques in React. Will focus on mastering this skill in the future projects.
 
 - **Failure 2: Lack of Touch Device Support**
 

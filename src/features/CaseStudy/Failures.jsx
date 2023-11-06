@@ -19,7 +19,7 @@ const Failures = () => {
           <p>
             <span className="font-semibold">Lesson:</span> Gained awareness of
             the need for advanced animation techniques in React. Will focus on
-            mastering this skill in future projects.
+            mastering this skill in the future projects.
           </p>
         </li>
 

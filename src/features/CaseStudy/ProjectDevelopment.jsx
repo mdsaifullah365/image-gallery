@@ -33,11 +33,11 @@ const ProjectDevelopment = () => {
         </li>
         <li>
           <span className="font-semibold">Deleting Multiple Images:</span> Users
-          could select multiple images by clicking on the checkbox. Visual
-          indication was provided by changing border and opacity to show which
-          images were selected. A delete button allowed users to remove the
-          selected images. A confirmation dialogue box is implemented to confirm
-          the deletion.
+          can select multiple images by clicking on the checkbox. The visual
+          indication was provided by changing the border and opacity to show
+          which images were selected. A delete button allowed users to remove
+          the selected images. A confirmation dialogue box is implemented to
+          confirm the deletion.
         </li>
         <li>
           <span className="font-semibold">Setting Feature Image:</span> The

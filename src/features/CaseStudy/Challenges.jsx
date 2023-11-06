@@ -18,14 +18,14 @@ const Challenges = () => {
           <p>
             <span className="font-semibold">Solution:</span> Overcoming this
             challenge without relying on a specialized library like React DnD
-            required a deep dive into native HTML drag and drop events. I
+            required a deep dive into native HTML drag-and-drop events. I
             extensively studied the HTML5 Drag and Drop API to understand its
             capabilities and limitations. I implemented a custom drag-and-drop
             solution that allowed users to reorder images seamlessly using the
             native events. This solution involved setting up event listeners for
-            drag start and drag over events. By carefully managing the images
-            state, I ensured that images could be reordered smoothly without the
-            need for a third-party library.
+            drag start and drag over events. By carefully managing the
+            image&apos;s state, I ensured that images could be reordered
+            smoothly without the need for a third-party library.
           </p>
         </li>
 
